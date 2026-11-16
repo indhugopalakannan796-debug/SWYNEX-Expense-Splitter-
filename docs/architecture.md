@@ -1,80 +1,185 @@
-
-# AI-Powered Receipt-Based Expense Splitting Application
+# SWYNEX – AI-Powered Receipt-Based Expense Splitting Application
 
 ## 1. Project Overview
 
-This project is an AI-powered expense splitting web application that helps friends, roommates, and groups divide shared expenses accurately.
+SWYNEX is an AI-powered expense-splitting web application designed to help friends, roommates, families, and groups manage shared expenses efficiently.
 
-Users can upload a receipt, extract purchased items, assign items to individual members through a chat-based interface, calculate individual expenses, and generate an optimized settlement plan.
+The application simplifies expense management by allowing users to upload shopping or restaurant receipts, automatically extract purchased items, and assign individual items to group members through an AI-assisted chat interface.
 
-The application also supports payment settlement through PayPal Sandbox.
+Based on these assignments, the system calculates individual contributions and generates an optimized settlement plan to minimize the number of transactions required between group members.
+
+The application also provides PayPal Sandbox integration to demonstrate secure digital payment settlement.
 
 ## 2. Problem Statement
 
-Splitting shared expenses manually is time-consuming and confusing.
+Splitting shared expenses manually is often time-consuming and confusing, especially when multiple people purchase different items or share expenses unevenly.
 
-Traditional expense-splitting applications often require users to enter expenses manually and calculate individual contributions.
+Traditional expense-splitting applications generally require users to enter expense details manually and calculate individual contributions themselves.
 
-Our application aims to simplify this process through AI-assisted receipt processing and automated expense calculations.
+This process can lead to calculation errors, misunderstandings, and difficulties in tracking outstanding payments.
+
+SWYNEX aims to address these problems through automated receipt processing, AI-assisted item assignment, accurate expense calculations, and optimized payment settlement.
 
 ## 3. Proposed Solution
 
-The application provides the following features:
+SWYNEX provides an intelligent and user-friendly platform for managing shared expenses.
 
-- Receipt image upload and item extraction.
-- AI-assisted receipt understanding.
-- Chat-based item assignment to group members.
-- Accurate individual expense calculation.
-- Automatic debt optimization.
-- PayPal Sandbox payment settlement.
+The proposed application includes the following features:
+
+- Receipt image upload and automatic item extraction.
+- AI-assisted receipt understanding using vision-based processing.
+- Chat-based item assignment to individual group members.
+- Automatic calculation of individual expense shares.
+- Debt optimization to minimize settlement transactions.
+- PayPal Sandbox payment integration.
 - Group expense history and balance tracking.
+- User and group management.
+
+The system combines AI-assisted processing with a structured expense management backend to provide a convenient expense-sharing experience.
 
 ## 4. Technology Stack
 
-### Frontend
-- React.js
-- Vite
-- Tailwind CSS
+The application follows a modern full-stack architecture using the following technologies.
 
-### Backend
-- Python
-- FastAPI
+### 4.1 Frontend
 
-### Database
-- SQLite
+| Technology | Purpose |
+|---|---|
+| React.js | Component-based user interface |
+| Vite | Frontend development and build tool |
+| Tailwind CSS | Responsive UI styling |
 
-### AI Processing
-- Vision-based receipt extraction
-- LLM-assisted item assignment interpretation
+### 4.2 Backend
 
-### Payment Integration
-- PayPal Sandbox
-- PayPal Webhooks
+| Technology | Purpose |
+|---|---|
+| Python | Backend programming language |
+| FastAPI | REST API development |
+| Pydantic | Request validation and data schemas |
+| SQLAlchemy | Database ORM and query management |
 
-### Development Tools
-- GitHub
-- Postman
-- ngrok
-- pytest
+### 4.3 Database
+
+| Technology | Purpose |
+|---|---|
+| SQLite | Relational data storage |
+
+### 4.4 AI Processing
+
+| Technology / Approach | Purpose |
+|---|---|
+| Vision-based receipt extraction | Extract item names, quantities, and prices from receipt images |
+| Large Language Model (LLM) | Interpret natural-language item assignment instructions |
+| AI-assisted processing | Convert user instructions into structured item assignments |
+
+### 4.5 Payment Integration
+
+| Technology | Purpose |
+|---|---|
+| PayPal Sandbox | Simulated payment processing |
+| PayPal REST APIs | Payment creation and capture |
+| PayPal Webhooks | Payment event notifications |
+
+### 4.6 Development Tools
+
+- Git and GitHub – Version control and source code management.
+- Postman – REST API testing.
+- ngrok – Exposing local services for webhook testing.
+- pytest – Backend testing.
+- Visual Studio Code – Development environment.
 
 ## 5. Main Application Modules
 
-1. User Management
-2. Group Management
-3. Receipt Processing
-4. AI-Based Item Assignment
-5. Expense Splitting Engine
-6. Debt Optimization Engine
-7. Payment Settlement
-8. Transaction History
+The system is organized into the following functional modules.
 
-## 6. Expected Outcome
+### 5.1 User Management
 
-The application will reduce manual effort in shared expense management, improve calculation accuracy, and provide a simple way for users to settle group expenses.
+Handles user registration, login, authentication, and profile information.
+
+### 5.2 Group Management
+
+Allows users to create expense-sharing groups, add members, and manage group information.
+
+### 5.3 Receipt Processing
+
+Accepts receipt images, validates uploaded files, and extracts item details using vision-based processing.
+
+### 5.4 AI-Based Item Assignment
+
+Interprets natural-language instructions through an AI-assisted chat interface and maps receipt items to group members.
+
+### 5.5 Expense Splitting Engine
+
+Calculates individual expense shares based on assigned items and their prices.
+
+### 5.6 Debt Optimization Engine
+
+Calculates outstanding balances and generates an optimized settlement plan to reduce the number of payment transactions.
+
+### 5.7 Payment Settlement
+
+Integrates PayPal Sandbox to demonstrate payment creation, capture, and transaction status verification.
+
+### 5.8 Transaction History
+
+Maintains records of group expenses, individual contributions, and payment transactions.
+
+## 6. System Architecture
+
+SWYNEX follows a modular client-server architecture consisting of frontend, backend, database, AI processing, and payment integration layers.
+
+### 6.1 Architecture Components
+
+**1. Presentation Layer**
+
+- Built using React.js, Vite, and Tailwind CSS.
+- Provides dashboards, group management, receipt upload, and expense summary screens.
+- Communicates with the backend through REST APIs.
+
+**2. Backend Application Layer**
+
+- Developed using Python and FastAPI.
+- Handles authentication, group management, expense calculations, and business logic.
+- Validates incoming requests using Pydantic.
+
+**3. Database Layer**
+
+- Uses SQLite for persistent data storage.
+- SQLAlchemy manages database models and queries.
+- Stores users, groups, expenses, receipts, item assignments, and payments.
+
+**4. AI Processing Layer**
+
+- Processes receipt images to extract item information.
+- Interprets chat-based assignment instructions.
+- Converts AI outputs into structured data for validation by the backend.
+
+**5. Payment Integration Layer**
+
+- Communicates with PayPal Sandbox APIs.
+- Creates and captures payment transactions.
+- Receives payment notifications through webhooks.
+
+### 6.2 Overall Architecture Flow
+
+React Frontend  
+↓  
+FastAPI Backend  
+↓  
+Business Logic and Validation  
+↓  
+SQLite Database
+
+The backend also communicates with:
+
+- AI Processing Services for receipt extraction and item assignment.
+- PayPal Sandbox APIs for payment settlement.
 
 ## 7. Database Design
 
-The application uses SQLite as its relational database.
+The application uses SQLite as its relational database. SQLAlchemy is used as the Object Relational Mapping (ORM) layer.
+
+The following tables define the proposed database structure.
 
 ### 7.1 User Table
 
@@ -85,152 +190,275 @@ Stores registered user information.
 | user_id | Integer (PK) | Unique user ID |
 | name | String | User name |
 | email | String (Unique) | User email |
-| password_hash | String | Encrypted password hash |
+| password_hash | String | Securely hashed password |
 | created_at | DateTime | Registration date |
 
 ### 7.2 Group Table
 
-Stores expense-sharing groups.
+Stores expense-sharing group information.
 
 | Field | Data Type | Description |
 |---|---|---|
 | group_id | Integer (PK) | Unique group ID |
 | group_name | String | Group name |
-| created_by | Integer (FK) | Group creator |
-| created_at | DateTime | Creation date |
+| created_by | Integer (FK) | User who created the group |
+| created_at | DateTime | Group creation date |
 
-### 7.3 Expense Table
+### 7.3 Group Member Table
 
-Stores shared expenses.
+Stores the relationship between users and groups.
+
+| Field | Data Type | Description |
+|---|---|---|
+| membership_id | Integer (PK) | Unique membership ID |
+| group_id | Integer (FK) | Associated group |
+| user_id | Integer (FK) | Group member ID |
+| joined_at | DateTime | Membership date |
+
+A user can belong to multiple groups, and each group can contain multiple users.
+
+### 7.4 Expense Table
+
+Stores shared expense information.
 
 | Field | Data Type | Description |
 |---|---|---|
 | expense_id | Integer (PK) | Unique expense ID |
 | group_id | Integer (FK) | Associated group |
+| paid_by | Integer (FK) | User who paid |
 | description | String | Expense description |
-| total_amount | Float | Total expense |
-| created_at | DateTime | Expense date |
+| total_amount | Float | Total expense amount |
+| created_at | DateTime | Expense creation date |
 
-### 7.4 Receipt Table
+### 7.5 Receipt Table
 
-Stores uploaded receipt details.
+Stores uploaded receipt information.
 
 | Field | Data Type | Description |
 |---|---|---|
 | receipt_id | Integer (PK) | Unique receipt ID |
 | expense_id | Integer (FK) | Associated expense |
-| image_path | String | Receipt image location |
+| image_path | String | Uploaded receipt image location |
 | extracted_text | Text | Extracted receipt information |
+| uploaded_at | DateTime | Upload date |
 
-### 7.5 Expense Split Table
+### 7.6 Receipt Item Table
 
-Stores individual member contributions.
+Stores individual items extracted from receipts.
+
+| Field | Data Type | Description |
+|---|---|---|
+| item_id | Integer (PK) | Unique item ID |
+| receipt_id | Integer (FK) | Associated receipt |
+| item_name | String | Extracted item name |
+| quantity | Integer | Item quantity |
+| price | Float | Item price |
+
+### 7.7 Item Assignment Table
+
+Stores the assignment of receipt items to individual group members.
+
+| Field | Data Type | Description |
+|---|---|---|
+| assignment_id | Integer (PK) | Unique assignment ID |
+| item_id | Integer (FK) | Associated receipt item |
+| user_id | Integer (FK) | Assigned group member |
+| assigned_amount | Float | Member's assigned share |
+
+### 7.8 Expense Split Table
+
+Stores the calculated contribution of each member.
 
 | Field | Data Type | Description |
 |---|---|---|
 | split_id | Integer (PK) | Unique split ID |
 | expense_id | Integer (FK) | Associated expense |
-| user_id | Integer (FK) | Member ID |
-| amount | Float | Member's share |
+| user_id | Integer (FK) | Group member ID |
+| amount | Float | Member's expense share |
 
-### 7.6 Payment Table
+### 7.9 Payment Table
 
-Stores payment transactions.
+Stores payment transaction information.
 
 | Field | Data Type | Description |
 |---|---|---|
 | payment_id | Integer (PK) | Unique payment ID |
-| payer_id | Integer (FK) | Sender |
-| receiver_id | Integer (FK) | Receiver |
+| payer_id | Integer (FK) | Payment sender |
+| receiver_id | Integer (FK) | Payment receiver |
 | amount | Float | Payment amount |
-| payment_status | String | Pending, completed or failed |
-| paypal_transaction_id | String | PayPal reference |
+| payment_status | String | Pending, completed, or failed |
+| paypal_transaction_id | String | PayPal transaction reference |
+| created_at | DateTime | Payment creation date |
 
 ## 8. API Design
 
-The backend uses REST APIs developed using FastAPI.
+The backend uses RESTful APIs developed using FastAPI to enable communication between the frontend and backend.
+
+### 8.1 User Management APIs
 
 | HTTP Method | Endpoint | Purpose |
 |---|---|---|
-| POST | /api/users/register | Register a user |
-| POST | /api/users/login | User login |
-| POST | /api/groups | Create a group |
-| GET | /api/groups | List user groups |
-| POST | /api/receipts/upload | Upload receipt |
+| POST | /api/users/register | Register a new user |
+| POST | /api/users/login | Authenticate a user |
+| GET | /api/users | Retrieve registered users |
+
+### 8.2 Group Management APIs
+
+| HTTP Method | Endpoint | Purpose |
+|---|---|---|
+| POST | /api/groups | Create a new group |
+| GET | /api/groups | Retrieve user groups |
+| GET | /api/groups/{group_id} | Retrieve group details |
+| POST | /api/groups/{group_id}/members | Add a member to a group |
+| GET | /api/groups/{group_id}/members | Retrieve group members |
+
+### 8.3 Receipt Processing APIs
+
+| HTTP Method | Endpoint | Purpose |
+|---|---|---|
+| POST | /api/receipts/upload | Upload a receipt image |
 | POST | /api/receipts/scan | Extract receipt items |
-| POST | /api/expenses/assign | Assign items to members |
-| POST | /api/expenses/split | Calculate expense shares |
+| GET | /api/receipts/{receipt_id} | Retrieve receipt details |
+| GET | /api/receipts/{receipt_id}/items | Retrieve extracted items |
+
+### 8.4 Expense Management APIs
+
+| HTTP Method | Endpoint | Purpose |
+|---|---|---|
+| POST | /api/expenses/assign | Assign receipt items to members |
+| POST | /api/expenses/split | Calculate individual expense shares |
+| GET | /api/expenses/{expense_id} | Retrieve expense details |
 | GET | /api/groups/{group_id}/balances | View group balances |
-| POST | /api/payments/create | Create PayPal payment |
-| GET | /api/payments/{payment_id} | Check payment status |
+| GET | /api/groups/{group_id}/expenses | Retrieve group expense history |
+
+### 8.5 Payment APIs
+
+| HTTP Method | Endpoint | Purpose |
+|---|---|---|
+| POST | /api/payments/create | Create a PayPal payment |
+| POST | /api/payments/capture | Capture an approved payment |
+| GET | /api/payments/{payment_id} | Retrieve payment status |
+| POST | /api/payments/webhook | Receive PayPal webhook events |
 
 ## 9. Frontend Screen Design
 
-The React frontend contains the following screens.
+The React frontend is designed to provide a simple and responsive user experience.
 
-### 9.1 Login and Registration
-- User registration
-- Email and password login
-- Form validation
+### 9.1 Login and Registration Screen
 
-### 9.2 Dashboard
-- Total expenses
-- Amount owed
-- Amount to receive
-- Recent transactions
+- User registration using name, email, and password.
+- Existing user login.
+- Input validation and authentication feedback.
 
-### 9.3 Group Management
-- Create a group
-- Add group members
-- View group expenses
+### 9.2 Dashboard Screen
 
-### 9.4 Receipt Upload
-- Upload receipt images
-- Preview uploaded receipt
-- Extract item names and prices
+- Overview of total expenses.
+- Amount owed by the user.
+- Amount to be received.
+- Recent transactions.
+- Quick access to groups.
 
-### 9.5 AI-Based Item Assignment
-- Display extracted receipt items
-- Chat-based item assignment
-- Assign items to group members
-- Review and confirm assignments
+### 9.3 Group Management Screen
 
-### 9.6 Expense Summary
-- Individual member shares
-- Total group expense
-- Optimized debt settlement
+- Create new expense-sharing groups.
+- Add group members.
+- View group details.
+- Display group expense history.
+
+### 9.4 Receipt Upload Screen
+
+- Upload receipt images.
+- Preview uploaded receipts.
+- Extract item names, quantities, and prices.
+- Review extracted receipt information.
+
+### 9.5 AI-Based Item Assignment Screen
+
+- Display extracted receipt items.
+- Provide a chat-based assignment interface.
+- Interpret natural-language assignment instructions.
+- Assign items to individual group members.
+- Review and confirm item assignments.
+
+### 9.6 Expense Summary Screen
+
+- Display individual member contributions.
+- Show total group expenses.
+- Calculate outstanding balances.
+- Display optimized debt settlement suggestions.
 
 ### 9.7 Payment Screen
-- View outstanding balances
-- Initiate PayPal Sandbox payment
-- Display payment status
+
+- Display outstanding payment balances.
+- Initiate PayPal Sandbox payments.
+- Show payment progress and transaction status.
+- Display completed and pending payments.
+
+### 9.8 Transaction History Screen
+
+- Display previous group expenses.
+- View individual payment records.
+- Track completed and pending settlements.
 
 ## 10. Application Workflow
 
-1. User registers and logs in.
-2. User creates a group and adds members.
-3. User uploads a receipt.
-4. AI processes the receipt and extracts items.
-5. Users assign items to group members through the chat interface.
-6. Expense engine calculates individual shares.
-7. Debt optimization engine minimizes the number of settlements.
-8. Users settle payments using PayPal Sandbox.
-9. Transaction history is updated.
+The proposed application follows the workflow below.
+
+1. A user registers and logs into the application.
+2. The user creates an expense-sharing group.
+3. Group members are added to the group.
+4. A user uploads a shopping or restaurant receipt.
+5. The AI processing layer extracts purchased items, quantities, and prices.
+6. Users assign receipt items to group members through the chat interface.
+7. The backend validates the assignments and calculates individual expense shares.
+8. The debt optimization engine calculates balances and generates an optimized settlement plan.
+9. Users initiate payment settlement through PayPal Sandbox.
+10. Payment status is verified and transaction history is updated.
 
 ## 11. Security Considerations
 
-- Passwords are stored using secure password hashing.
-- Authentication is required for protected APIs.
-- Uploaded files are validated.
-- API inputs are validated before processing.
-- PayPal credentials are stored in environment variables.
-- Payment status is verified using PayPal server-side verification.
+The application considers the following security practices:
 
-## 12. Future Enhancements
+- Passwords are stored using secure password hashing rather than plain-text storage.
+- Authentication is required for protected API endpoints.
+- Group and expense data access is restricted to authorized members.
+- Uploaded receipt files are validated for supported formats and file size.
+- API inputs are validated before processing.
+- PayPal credentials and sensitive configuration values are stored in environment variables.
+- Payment status is verified through server-side PayPal API communication.
+- PayPal webhook events are validated before updating transaction records.
+- Database operations are handled through SQLAlchemy to support structured data access.
+
+## 12. Expected Outcome
+
+The proposed SWYNEX application aims to simplify shared expense management by combining receipt-based item extraction, AI-assisted assignment, automated expense calculations, and digital payment settlement.
+
+The expected benefits include:
+
+- Reduced manual effort in entering expense details.
+- Improved accuracy in individual expense calculations.
+- Simplified item assignment among group members.
+- Reduced complexity in settling shared expenses.
+- Better visibility into group balances and transaction history.
+- A convenient and user-friendly expense management experience.
+
+## 13. Future Enhancements
+
+The application can be extended with the following features:
 
 - Multi-currency expense support.
-- Group expense analytics.
+- Advanced receipt recognition and improved OCR accuracy.
+- Group expense analytics and spending reports.
 - Mobile application support.
-- Advanced AI-based receipt recognition.
 - Notifications for pending payments.
+- Recurring expense management.
+- Additional payment gateway integrations.
+- Advanced financial insights and personalized spending summaries.
 
+## 14. Conclusion
+
+SWYNEX proposes an intelligent approach to shared expense management by integrating modern web technologies, AI-assisted receipt processing, automated expense splitting, and digital payment settlement.
+
+Its modular architecture separates frontend presentation, backend business logic, database management, AI processing, and payment integration.
+
+This architecture provides a structured foundation for developing a scalable, maintainable, and user-friendly expense-sharing application.
