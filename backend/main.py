@@ -2,7 +2,7 @@
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
-from passlib.context import CryptContext
+from pwdlib import PasswordHash
 
 from database import engine, get_db
 from models import Base, User
@@ -16,7 +16,7 @@ app = FastAPI(
 
 Base.metadata.create_all(bind=engine)
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+password_hash = PasswordHash.recommended()
 
 
 @app.get("/")
@@ -37,7 +37,7 @@ def register_user(user: UserCreate, db: Session = Depends(get_db)):
             detail="Email already registered"
         )
 
-    hashed_password = pwd_context.hash(user.password)
+    hashed_password = password_hash.hash(user.password)
 
     new_user = User(
         name=user.name,

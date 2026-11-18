@@ -1,6 +1,5 @@
-
 fastapi
 uvicorn[standard]
 sqlalchemy
 pydantic
-passlib[bcrypt]
+pwdlib[argon2]
