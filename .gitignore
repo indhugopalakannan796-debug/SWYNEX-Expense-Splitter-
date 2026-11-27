@@ -218,3 +218,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local database and dependencies
+*.db
+node_modules/
+__pycache__/
+.venv/
