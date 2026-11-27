@@ -27,7 +27,7 @@ function App() {
   const [loading, setLoading] = useState(false)
 
   const api = async (url, options = {}) => {
-    const response = await fetch(url, {
+    const response = await fetch(`https://swynex-backend-1vaq.onrender.com${url}`, {
       ...options,
       headers: {
         'Content-Type': 'application/json',

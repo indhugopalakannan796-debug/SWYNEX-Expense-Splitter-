@@ -1,6 +1,6 @@
 
 from decimal import Decimal
-
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
@@ -26,9 +26,17 @@ from schemas import (
 )
 
 app = FastAPI(
+    
     title="SWYNEX API",
     description="AI-Powered Receipt-Based Expense Splitting Application",
     version="1.0.0"
+)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 Base.metadata.create_all(bind=engine)
